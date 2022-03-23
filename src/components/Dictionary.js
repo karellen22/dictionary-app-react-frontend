@@ -1,9 +1,14 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 // import useFetchDictionary from '../services/useFetchDictionary'
 import { Row, Col } from "react-bootstrap";
+import { GetDictionary } from "../services/dictionary";
 
-const Dictionary = ({ dictionary }) => {
-    return dictionary.map((dictionaryEntry) => (
+const Dictionary = () => {
+  const [dictionary, setDictionary] = useState("");
+  useEffect( ()=> {
+    GetDictionary(setDictionary);
+  },[])
+    return dictionary && dictionary.map((dictionaryEntry) => (
         <div style={{ marginBottom: "1rem" } }  key={dictionaryEntry.guid}>
           <DictionaryEntry dictionaryEntry={dictionaryEntry}/>
         </div>
