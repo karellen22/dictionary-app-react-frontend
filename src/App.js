@@ -1,11 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import useFetchDictionary from './services/useFetchDictionary'
+import logo from "./logo.svg";
+import useFetchDictionary from "./services/useFetchDictionary";
+import Dictionary from "./components/Dictionary";
 
 function App() {
-  const {data: dictionary, isPending, error} = useFetchDictionary('https://localhost:44323/Dictionary');
+  const {
+    data: dictionary,
+    isPending,
+    error,
+  } = useFetchDictionary("https://localhost:44323/Dictionary");
   return (
-    <>{dictionary && dictionary.map(dictionaryEntry => dictionaryEntry.hungarian)}</>
+    <div style={{ width: "90%", margin: "auto" }}>
+      <h1>Dictionary</h1>
+      {dictionary && <Dictionary dictionary={dictionary} />}
+    </div>
   );
 }
 
