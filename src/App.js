@@ -1,5 +1,5 @@
 import Dictionary from "./components/dictionary/Dictionary";
-import TranslationForm from "./components/TranslationForm";
+import TranslationForm from "./components/translation/TranslationForm";
 
 function App() {
   return (

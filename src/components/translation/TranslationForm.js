@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Row, Col, Form, Button, Alert } from "react-bootstrap";
-import { GetTranslation } from "../services/dictionary";
+import { GetTranslation } from "../../services/dictionary";
 
 const TranlsationForm = () => {
   const [translateFrom, setTranslateFrom] = useState("");
@@ -8,6 +8,11 @@ const TranlsationForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
+
+  const handleErrorMessageHiding = () => {
+    setErrorMessage("");
+    setShow(false);
+  };
 
   return (
     <Form
@@ -25,11 +30,9 @@ const TranlsationForm = () => {
             setErrorMessage,
             setShow
           );
+          setValidated(true);
         }
-
-        setValidated(true);
-        setErrorMessage("");
-        setShow(false);
+        handleErrorMessageHiding();
       }}
       noValidate
       validated={validated}
