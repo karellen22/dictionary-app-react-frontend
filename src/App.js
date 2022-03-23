@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import useFetchDictionary from "./services/useFetchDictionary";
 import Dictionary from "./components/Dictionary";
+import TranslationForm from "./components/TranslationForm";
 
 function App() {
   const {
@@ -10,8 +11,11 @@ function App() {
   } = useFetchDictionary("https://localhost:44323/Dictionary");
   return (
     <div style={{ width: "90%", margin: "auto" }}>
+      <h1>Translator</h1>
+      <TranslationForm />
       <h1>Dictionary</h1>
       {dictionary && <Dictionary dictionary={dictionary} />}
+      {isPending && <div>Loading...</div>}
     </div>
   );
 }
