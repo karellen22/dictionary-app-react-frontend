@@ -9,6 +9,7 @@ const TranlsationForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
+
   return (
     <Form
       onSubmit={(event) => {
@@ -17,17 +18,28 @@ const TranlsationForm = () => {
         if (event.currentTarget.checkValidity() === false) {
         } else {
           console.log("translating from: ", translateFrom);
-          GetTranslation(translateFrom, setTranslation, setErrorMessage, setShow);
+          GetTranslation(
+            translateFrom,
+            setTranslation,
+            setErrorMessage,
+            setShow
+          );
         }
 
         setValidated(true);
-        setErrorMessage('');
+        setErrorMessage("");
         setShow(false);
       }}
       noValidate
       validated={validated}
     >
       <Row>
+      {show && (
+        <Alert variant="danger" onClose={() => setShow(false)} dismissible >
+          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <p>{errorMessage}</p>
+        </Alert>
+      )}
         <Form.Group
           as={Col}
           className="mb-3"
@@ -59,12 +71,6 @@ const TranlsationForm = () => {
           Translate
         </Button>
       </Row>
-    {show && <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-        <p>
-          {errorMessage}
-        </p>
-      </Alert>}
     </Form>
   );
 };
