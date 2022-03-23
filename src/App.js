@@ -1,4 +1,4 @@
-import Dictionary from "./components/dictionary/Dictionary";
+// import Dictionary from "./components/dictionary/Dictionary";
 import TranslationForm from "./components/translation/TranslationForm";
 
 function App() {
