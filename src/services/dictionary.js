@@ -21,9 +21,9 @@ export const GetTranslation = async (
     //   (dictionaryEntry) => dictionaryEntry.english === translateFrom
     // )[0];
     const translation = await axios.get(
-      "https://localhost:44323/Dictionary/" + translateFrom
+      "https://localhost:44323/Dictionary/English/Hungarian/" + translateFrom
     );
-    console.log(translation.data);
+    console.log("translation data: ", translation);
     setTranslation(translation.data);
   } catch (err) {
     console.log("Error ", err);
