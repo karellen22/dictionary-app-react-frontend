@@ -38,12 +38,6 @@ const TranlsationForm = () => {
       validated={validated}
     >
       <Row>
-        {show && (
-          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-            <p>{errorMessage}</p>
-          </Alert>
-        )}
         <Form.Group
           as={Col}
           className="mb-3"
@@ -71,9 +65,17 @@ const TranlsationForm = () => {
         </Form.Group>
       </Row>
       <Row>
-        <Button variant="primary" type="submit">
+        <Button style={{'margin-bottom': '10px'}} variant="primary" type="submit">
           Translate
         </Button>
+      </Row>
+      <Row>
+      {show && (
+          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+            <p>{errorMessage}</p>
+          </Alert>
+        )}
       </Row>
     </Form>
   );
