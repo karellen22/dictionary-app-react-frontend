@@ -15,7 +15,7 @@ const TranlsationForm = () => {
       onSubmit={(event) => {
         event.preventDefault();
         event.stopPropagation();
-        if (event.currentTarget.checkValidity() === false) {
+        if (event.currentTarget.checkValidity() === false || translateFrom.trim() === '') {
         } else {
           console.log("translating from: ", translateFrom);
           GetTranslation(
