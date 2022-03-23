@@ -5,9 +5,10 @@ import { GetTranslation } from "../../services/dictionary";
 const TranlsationForm = () => {
   const [translateFrom, setTranslateFrom] = useState("");
   const [translation, setTranslation] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [validated, setValidated] = useState(false);
+  // M: States used for the alert component.
   const [show, setShow] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleErrorMessageHiding = () => {
     setErrorMessage("");
@@ -65,13 +66,13 @@ const TranlsationForm = () => {
         </Form.Group>
       </Row>
       <Row>
-        <Button style={{'margin-bottom': '10px'}} variant="primary" type="submit">
+        <Button style={{'marginBottom': '10px'}} variant="primary" type="submit">
           Translate
         </Button>
       </Row>
       <Row>
       {show && (
-          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+          <Alert variant="danger" onClose={() => handleErrorMessageHiding()} dismissible>
             <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
             <p>{errorMessage}</p>
           </Alert>
