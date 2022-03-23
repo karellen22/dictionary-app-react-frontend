@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import Dictionary from "./components/Dictionary";
+import Dictionary from "./components/dictionary/Dictionary";
 import TranslationForm from "./components/TranslationForm";
 
 function App() {

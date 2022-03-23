@@ -1,7 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { GetTranslation } from "../services/dictionary";
-// import axios from "axios";
 
 const TranlsationForm = () => {
   const [translateFrom, setTranslateFrom] = useState("");
@@ -14,8 +13,10 @@ const TranlsationForm = () => {
     <Form
       onSubmit={(event) => {
         event.preventDefault();
-        event.stopPropagation();
-        if (event.currentTarget.checkValidity() === false || translateFrom.trim() === '') {
+        if (
+          event.currentTarget.checkValidity() === false ||
+          translateFrom.trim() === ""
+        ) {
         } else {
           console.log("translating from: ", translateFrom);
           GetTranslation(
@@ -34,12 +35,12 @@ const TranlsationForm = () => {
       validated={validated}
     >
       <Row>
-      {show && (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible >
-          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-          <p>{errorMessage}</p>
-        </Alert>
-      )}
+        {show && (
+          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+            <p>{errorMessage}</p>
+          </Alert>
+        )}
         <Form.Group
           as={Col}
           className="mb-3"
