@@ -1,4 +1,5 @@
-import { Row, Col } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const DictionaryEntry = ({ dictionaryEntry }) => {
   return (
@@ -9,6 +10,11 @@ const DictionaryEntry = ({ dictionaryEntry }) => {
         <Col>{dictionaryEntry.spanish}</Col>
         <Col>{dictionaryEntry.chinese}</Col>
         <Col>{dictionaryEntry.portugese}</Col>
+        <Col>
+          <Button as={Link} to={"/entry/" + dictionaryEntry.guid}>
+            Edit
+          </Button>
+        </Col>
       </Row>
     </div>
   );

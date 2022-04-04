@@ -9,6 +9,32 @@ export const GetDictionary = async (setDictionary) => {
   }
 };
 
+export const GetDictionaryEntry = async (guid, setDictionaryEntry) => {
+  try {
+    const { data } = await axios.get(
+      "https://localhost:44323/Dictionary/entry?guid=" + guid
+    );
+    setDictionaryEntry(data);
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+
+export const EditDictionaryEntry = async (
+  dictionaryEntry,
+  setDictionaryEntry
+) => {
+  try {
+    const { data } = await axios.put(
+      "https://localhost:44323/Dictionary/entry",
+      dictionaryEntry
+    );
+    setDictionaryEntry(data);
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+
 export const GetTranslation = async (
   translateFrom,
   setTranslation,
